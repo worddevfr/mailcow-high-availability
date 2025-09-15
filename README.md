@@ -174,10 +174,11 @@ Offer your users a modern and seamless sign-up experience. This custom-developed
 *   **Multi-language** support with a **light/dark mode**.
 *   **100% compliant with the Mailcow graphic charter**, using its own templating system for perfect visual integration.
 
+<br>
 <p align="center">
 <img src="light-screen.png" alt="SignUp Screenshot" height="70%" width="70%">
 <p/>
-
+    
 #### 📈 Proven Scalability
 The architecture is designed to grow with your needs.
 *   The cluster defaults to **3 nodes** but can be extended to 5, 7, or more for increased resilience.
@@ -190,7 +191,11 @@ Know what's happening, when it's happening, without being flooded with notificat
 *   **Compatibility with external tools** like Uptime Kuma for end-to-end monitoring.
 *   **Comprehensive system logs** (`journalctl`) allowing you to integrate your own monitoring solution if desired.
 
----
+
+<p align="center">
+<img src="uptime-kuma.png" alt="External  monitoring">
+<p/>
+
 
 ### 🏛️ Cluster Architecture
 
@@ -277,8 +282,11 @@ Sachez ce qui se passe, quand ça se passe, sans être inondé de notifications.
 *   **Compatibilité avec les outils externes** comme Uptime Kuma pour une surveillance de bout en bout.
 *   **Logs système complets** (`journalctl`) permettant d'intégrer votre propre solution de supervision si vous le souhaitez.
 
----
-
+<br>
+<p align="center">
+<img src="uptime-kuma.png" alt="External  monitoring">
+<p/>
+    
 ### 🏛️ Architecture du Cluster
 
 La robustesse de Mailcow-HA repose sur quatre piliers fondamentaux :
