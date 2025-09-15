@@ -7,11 +7,24 @@
 <p>&nbsp;</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
-  <img src="https://img.shields.io/badge/MariaDB%20Galera-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Galera"/>
-  <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
-  <img src="https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="GNU Bash"/>
+  <a href="https://github.com/mailcow/mailcow-dockerized" target="_blank">
+    <img src="https://img.shields.io/badge/MAILCOW-FFC107?style=for-the-badge&logoColor=white" alt="Mailcow"/>
+  </a>
+  <a href="https://www.docker.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+  </a>
+  <a href="https://www.keepalived.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
+  </a>
+  <a href="https://mariadb.com/kb/en/galera-cluster/" target="_blank">
+    <img src="https://img.shields.io/badge/MariaDB%20Galera-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Galera"/>
+  </a>
+  <a href="https://www.hetzner.com/cloud" target="_blank">
+    <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
+  </a>
+  <a href="https://www.gnu.org/software/bash/" target="_blank">
+    <img src="https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="GNU Bash"/>
+  </a>
 <br><br>
 </p>
 
