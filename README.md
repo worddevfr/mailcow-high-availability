@@ -150,8 +150,8 @@ Absolutely **no human intervention** is required. The cluster detects failures a
 *   **Malfunction of a Mailcow container** (e.g., `postfix`, `dovecot`, etc.).
 *   **Degradation of the Galera database cluster**.
 
-#### ⚡ 40-Second Failover Time
-In the event of a failure, the service is operational again in **approximately 40 seconds**. This is the time it takes for our orchestrator to:
+#### ⚡ A Few-Second Failover Time 
+In the event of a failure, the service is operational again in **only a few seconds**, depending on your server’s performance. This is the time it takes for our orchestrator to:
 1.  Stop critical services on the failed node.
 2.  Detach the shared storage volume.
 3.  Attach the volume to a standby node.
@@ -242,8 +242,8 @@ Absolument **aucune intervention humaine** n'est nécessaire. Le cluster détect
 *   **Dysfonctionnement d'un conteneur Mailcow** (ex: `postfix`, `dovecot`, etc.).
 *   **Dégradation du cluster de base de données Galera**.
 
-#### ⚡ Basculement en 40 Secondes Chrono
-En cas de panne, le service est de nouveau opérationnel en **environ 40 secondes**. C'est le temps nécessaire pour que notre orchestrateur :
+#### ⚡ Un temps de basculement de quelques secondes  
+En cas de défaillance, le service redevient opérationnel en **à peine quelques secondes**, selon les performances de votre serveur. C’est le temps nécessaire à notre orchestrateur pour :
 1.  Arrête les services critiques sur le nœud défaillant.
 2.  Détache le volume de stockage partagé.
 3.  Attache ce volume sur un nœud de secours.
