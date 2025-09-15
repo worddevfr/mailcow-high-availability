@@ -6,7 +6,7 @@
 
 <br>
 
-<details open>
+<details>
 <summary><strong>🇬🇧 English Version (click to expand)</strong></summary>
 
 ### Our Approach to Automation
