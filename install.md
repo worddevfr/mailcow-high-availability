@@ -51,14 +51,7 @@ For this reason, we offer a **professional, turnkey deployment service** that de
 
 </details>
 
-<div align="center">
-    
-### 🎥 Demo Youtube
 
-[![Voir la vidéo](https://img.youtube.com/vi/eZUvKtNp3Ak/0.jpg)](https://www.youtube.com/watch?v=eZUvKtNp3Ak)
-</div>
-
-<br>
 <details>
 <summary><strong>🇫🇷 Version Française (cliquer pour déplier)</strong></summary>
 
@@ -104,3 +97,9 @@ Pour cette raison, nous proposons un **service de déploiement professionnel et 
 
 </details>
 
+<div align="center">
+    
+### 🎥 Demo Youtube
+
+[![Voir la vidéo](https://img.youtube.com/vi/eZUvKtNp3Ak/0.jpg)](https://www.youtube.com/watch?v=eZUvKtNp3Ak)
+</div>
