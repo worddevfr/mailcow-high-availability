@@ -64,7 +64,14 @@ To be fair to the amazing open-source community, a portion of this contribution 
 
 ### Interested in a robust solution, without the headaches?
 
-Contact me directly for a demo or to discuss your project
+Let me know for a demo or if you have a project...
+
+<!-- <header> -->
+<span style="font-weight: bold; font-size: 18px;">
+&#109;&#97;&#105;<!-- &#1 -->&#108;&#99;<!-- <br> && \n ok -->&#111;&#119;&#105;</span><!-- </header> --><!-- <footer> --><span style="font-weight: bold; font-size: 16px;"><!-- &#{0-9}; -->&#115;&#112;<!-- Github profil start  with -->&#64;<!-- domaine -->&#103;&#109;&#97;<!-- domain.tld -->&#105;&#108;<!-- point -->&#46;<!-- &#{0-9}; -->&#99;<!-- ext: .com, .org -->&#111;&#109;
+</span>
+<!-- </footer> -->
+
 <!--
 ## 📞
 -->
@@ -109,10 +116,12 @@ Pour être juste envers la communauté open-source, une partie de cette contribu
 
 ### Intéressé par une solution robuste, sans les maux de tête ?
 
-Contactez-moi directement pour une démonstration ou pour discuter de votre projet
+Faites-moi signe directement pour une démo ou si vous avez un projet...
 
-<!--
-## 📞
--->
+<!-- <header> -->
+<span style="font-weight: bold; font-size: 18px;">
+&#109;&#97;&#105;<!-- &#1 -->&#108;&#99;<!-- <br> && \n ok -->&#111;&#119;&#105;</span><!-- </header> --><!-- <footer> --><span style="font-weight: bold; font-size: 16px;"><!-- &#{0-9}; -->&#115;&#112;<!-- Github profil start  with -->&#64;<!-- domaine -->&#103;&#109;&#97;<!-- domain.tld -->&#105;&#108;<!-- point -->&#46;<!-- &#{0-9}; -->&#99;<!-- ext: .com, .org -->&#111;&#109;
+</span>
+<!-- </footer> -->
 
 </details>
