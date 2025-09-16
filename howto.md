@@ -33,7 +33,7 @@
 
 ### 📄 Detailed Technical Architecture
 
-#### 1. Philosophy and Objectives
+### 1. Philosophy and Objectives
 
 A standard Mailcow instance, while powerful, is a **Single Point of Failure (SPOF)**. A hardware failure, a faulty update, or a critical container crash is enough to bring down the entire mail service.
 
@@ -43,7 +43,7 @@ This solution is designed as an **orchestration layer** that integrates with a s
 
 ---
 
-#### 2. The Four Pillars of the Infrastructure
+### 2. The Four Pillars of the Infrastructure
 
 The cluster's robustness is built on four fundamental components working in concert.
 
@@ -93,11 +93,11 @@ Here is the precise, step-by-step sequence of events when a failure occurs on th
 5.  **The Orchestration (on the new `MASTER`)**:
     *   Upon its promotion, the orchestrator runs the promotion script.
     *   This script executes its critical sequence:
-        a. **Circuit Breaker Check:** It checks if a failover has already occurred on this node less than a user-defined time ago (**1 hour by default**). If so, it stops and sends an alert to prevent a failover loop.
-        b. **Timestamp Update:** It records the start of the failover to grant a grace period to the monitoring system.
-        c. **Resource Failover (in parallel):** It launches simultaneous API calls to reassign the **shared volume** and the **Floating IP**.
-        d. **Wait and Mount:** It waits for confirmation that both operations are complete, then **mounts** the shared volume.
-        e. **Service Start-up:** It starts the Mailcow Docker containers and ensures they are all fully operational.
+        *   a. **Circuit Breaker Check:** It checks if a failover has already occurred on this node less than a user-defined time ago (**1 hour by default**). If so, it stops and sends an alert to prevent a failover loop.
+         *   b. **Timestamp Update:** It records the start of the failover to grant a grace period to the monitoring system.
+         *   c. **Resource Failover (in parallel):** It launches simultaneous API calls to reassign the **shared volume** and the **Floating IP**.
+         *   d. **Wait and Mount:** It waits for confirmation that both operations are complete, then **mounts** the shared volume.
+         *   e. **Service Start-up:** It starts the Mailcow Docker containers and ensures they are all fully operational.
 
 6.  **The Grace Period:**
     *   While the promotion script is working (**in just a few seconds**, depending on machine performance), the monitoring script on the new `MASTER` is patient, as it has detected that a failover has just begun.
@@ -112,6 +112,12 @@ Rest assured, from the moment a failure is detected to the moment the service is
 
 Meanwhile, a **dual monitoring system** (an internal smart monitor and an external one via [Uptime Kuma](https://github.com/louislam/uptime-kuma)) ensures total visibility and instantly alerts the administrator without flooding them with notifications. Additionally, "garbage collector" scripts run at regular intervals to clean up any potential residues.
 
+<br>
+<p align="center">
+  <strong><a href="./help.md">➡️ Learn more about our Professional services in help.md</a></strong>
+</p>
+<br>
+
 </details>
 
 <br>
@@ -121,7 +127,7 @@ Meanwhile, a **dual monitoring system** (an internal smart monitor and an extern
 
 ### 📄 Architecture Technique Détaillée
 
-#### 1. Philosophie et Objectifs
+### 1. Philosophie et Objectifs
 
 Une instance Mailcow standard, bien que performante, constitue un **point de défaillance unique (SPOF)**. Une panne matérielle, une erreur de mise à jour ou un dysfonctionnement d'un conteneur critique suffit à rendre l'ensemble du service de messagerie indisponible.
 
@@ -131,7 +137,7 @@ La solution est conçue comme une **surcouche d'orchestration** qui s'intègre �
 
 ---
 
-#### 2. Les Quatre Piliers de l'Infrastructure
+### 2. Les Quatre Piliers de l'Infrastructure
 
 La robustesse du cluster repose sur quatre composants fondamentaux qui travaillent de concert.
 
@@ -181,11 +187,11 @@ Voici le déroulement précis, étape par étape, lorsqu'une panne survient sur 
 5.  **L'Orchestration (sur le nouveau `MASTER`)**:
     *   Dès sa promotion, l'orchestrateur exécute le script de promotion.
     *   Celui-ci exécute sa séquence critique :
-        a. **Vérification du Disjoncteur :** Il vérifie si une bascule a déjà eu lieu sur ce nœud il y a moins d'un temps défini par l'administrateur (**1 heure par défaut**). Si c'est le cas, il s'arrête et envoie une alerte pour éviter une boucle de basculement.
-        b. **Mise à Jour des Chronomètres :** Il enregistre le début de la bascule pour accorder une période de grâce à la surveillance.
-        c. **Bascule des Ressources (en parallèle) :** Il lance les appels pour réassigner le **volume partagé** et l'**IP Flottante** simultanément.
-        d. **Attente et Montage :** Il attend la confirmation que les deux opérations sont terminées, puis il **monte** le volume partagé.
-        e. **Démarrage des Services :** Il démarre les services (conteneurs Docker) de Mailcow et s'assure qu'ils sont tous en état de fonctionnement.
+         *   a. **Vérification du Disjoncteur :** Il vérifie si une bascule a déjà eu lieu sur ce nœud il y a moins d'un temps défini par l'administrateur (**1 heure par défaut**). Si c'est le cas, il s'arrête et envoie une alerte pour éviter une boucle de basculement.
+         *   b. **Mise à Jour des Chronomètres :** Il enregistre le début de la bascule pour accorder une période de grâce à la surveillance.
+         *   c. **Bascule des Ressources (en parallèle) :** Il lance les appels pour réassigner le **volume partagé** et l'**IP Flottante** simultanément.
+         *   d. **Attente et Montage :** Il attend la confirmation que les deux opérations sont terminées, puis il **monte** le volume partagé.
+         *   e. **Démarrage des Services :** Il démarre les services (conteneurs Docker) de Mailcow et s'assure qu'ils sont tous en état de fonctionnement.
 
 6.  **La Période de Grâce :**
     *   Pendant que le script de promotion travaille (**en à peine quelques secondes**, selon la performance des machines), le script de surveillance du nouveau `MASTER` est patient, car il a détecté le début d'une bascule.
@@ -199,6 +205,12 @@ Voici le déroulement précis, étape par étape, lorsqu'une panne survient sur 
 Rassurez-vous, entre l'instant où la panne est détectée et la disponibilité à nouveau du service, il ne s'écoule **qu'à peine quelques secondes** !
 
 Pendant ce temps, une **double surveillance** (une interne grâce à un monitoring intelligent et une autre externe via [Uptime Kuma](https://github.com/louislam/uptime-kuma)) garantit une visibilité totale et alerte instantanément l'administrateur sans l'inonder de notifications. De plus, des scripts "ramasse-miettes" s'exécutent à intervalle régulier pour nettoyer les résidus potentiels.
+
+<br>
+<p align="center">
+  <strong><a href="./help.md">➡️ Découvrez nos services Professionnels dans help.md</a></strong>
+</p>
+<br>
 
 </details>
 
