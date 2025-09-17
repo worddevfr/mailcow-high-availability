@@ -229,7 +229,7 @@ The robustness of Mailcow-HA is built on four fundamental pillars:
 
 4.  **Security and Optimization**
     - The architecture is designed to work with **advanced firewall rules**, exposing only the strictly necessary ports.
-    - A **circuit breaker** mechanism (`security_wait.stat`) prevents an unstable cluster from causing continuous failover loops.
+    - A **circuit breaker** mechanism (`security_wait`) prevents an unstable cluster from causing continuous failover loops.
 
 
 ---
@@ -319,4 +319,4 @@ La robustesse de Mailcow-HA repose sur quatre piliers fondamentaux :
 
 4.  **Sécurité et Optimisation**
     - L'architecture est conçue pour fonctionner avec des règles de **pare-feu** poussées, n'exposant que les ports strictement nécessaires.
-    - Un mécanisme de **disjoncteur** (`security_wait.stat`) empêche un cluster instable de provoquer des boucles de basculement continues.
+    - Un mécanisme de **disjoncteur** (`security_wait`) empêche un cluster instable de provoquer des boucles de basculement continues.
