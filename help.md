@@ -76,10 +76,6 @@ Let me know for a demo or if you have a project...
 </span>
 <!-- </footer> -->
 
-<!--
-## 📞
--->
-
 </details>
 
 <br>
