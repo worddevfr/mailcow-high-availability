@@ -123,7 +123,7 @@ Meanwhile, a **dual monitoring system** (an internal smart monitor and an extern
 <br>
 
 <details>
-<summary><strong>🇫🇷 Version Française (Ccliquer pour déplier)</strong></summary>
+<summary><strong>🇫🇷 Version Française (cliquer pour déplier)</strong></summary>
 
 ### 📄 Architecture Technique Détaillée
 
