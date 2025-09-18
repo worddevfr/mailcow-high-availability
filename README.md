@@ -4,9 +4,14 @@
 
 <h1 align="center">Mailcow ISP</h1>
 
+<p align="center">
+    ⭐ If you like this project, <strong>consider giving it a star</strong> — it really keeps us motivated! ⭐<br>
+    ⭐ Si ce projet vous plaît, <strong>pensez à lui mettre une étoile</strong> — ça nous motive énormément ! ⭐
+
 <p>&nbsp;</p>
 
 <p align="center">
+    
   <a href="https://github.com/mailcow/mailcow-dockerized" target="_blank">
     <img src="https://img.shields.io/badge/MAILCOW-FFC107?style=for-the-badge&logoColor=white" alt="Mailcow"/>
   </a>
