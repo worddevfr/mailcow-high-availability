@@ -51,7 +51,8 @@ The cluster's robustness is built on four fundamental components working in conc
 The cluster consists of **three identical servers (nodes) by default**, but its architecture is designed to be **scalable to 5, 7, or more nodes**. Each node hosts:
 1.  A complete and ready-to-start Mailcow Dockerized installation.
 2.  A MariaDB database server, member of the Galera Cluster.
-3.  The cluster management service (Keepalived).
+3.  The cluster management service (`Mailcow-HA`).
+4.  Keepalived.
 
 At any given time, only one of these nodes is designated as **`MASTER`** and actively handles traffic. The others are in a hot-standby **`BACKUP`** state, ready to take over.
 
@@ -81,7 +82,7 @@ Here is the precise, step-by-step sequence of events when a failure occurs on th
 1.  **The Failure:** A critical container (e.g., `dovecot-mailcow`) on the `MASTER` crashes.
 
 2.  **The Detection:**
-    *   **~2 seconds later**, the monitoring script detects that the container is no longer in a `running` state.
+    *   **Instantly**, the monitoring script detects that the service is no longer in 100% `Operational` state.
     *   It returns an error code to the orchestrator.
 
 3.  **The Decision:**
@@ -145,7 +146,8 @@ La robustesse du cluster repose sur quatre composants fondamentaux qui travaille
 Le cluster est composé de **trois serveurs (nœuds) identiques par défaut**, mais son architecture est conçue pour être **extensible à 5, 7 nœuds ou plus**. Chaque nœud héberge :
 1.  Une installation complète de Mailcow Dockerized, prête à démarrer.
 2.  Un serveur de base de données MariaDB, membre du cluster Galera.
-3.  Le service de gestion du cluster (Keepalived).
+3.  Le service de gestion du cluster (`Mailcow-HA`).
+4.  Keepalived.
 
 À tout instant, un seul de ces nœuds est désigné **`MASTER`** et traite activement le trafic. Les autres sont en état de **`BACKUP`** (hot-standby), prêts à prendre le relais.
 
@@ -175,7 +177,7 @@ Voici le déroulement précis, étape par étape, lorsqu'une panne survient sur 
 1.  **La Panne :** Un conteneur critique (ex: `dovecot-mailcow`) sur le `MASTER` plante.
 
 2.  **La Détection :**
-    *   **~2 secondes plus tard**, le script de surveillance détecte que le conteneur n'est plus à l'état `running`.
+    *   **Instantanément**, le script de surveillance détecte que le service n'est plus à 100% l'état `Opérationnel`.
     *   Il retourne un code d'erreur à l'orchestrateur.
 
 3.  **La Décision :**
