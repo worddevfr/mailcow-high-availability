@@ -158,8 +158,8 @@ Pour cette raison, nous proposons un **service de déploiement professionnel et 
   <tr>
     <td colspan="2" align="center">
         <br>
-      <a href="https://www.youtube.com/watch?v=eZUvKtNp3Ak" target="_new">
-         <img src="signup.png" alt="Mailcow ISP" style="height: 600px; width: 600px;">
+      <a href="https://www.youtube.com/watch?v=wEbo20yiaYA" target="_new">
+         <img src="signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
       </a>
    <br><br>
     </td>
