@@ -219,4 +219,48 @@ Pendant ce temps, une **double surveillance** (une interne grâce à un monitori
 <br>
 
 </details>
+<br>
+<div align="center">
 
+<table tyle="width: 100%; table-layout:fixed; border:1px solid #ddd; border-collapse:collapse;">
+  <tr>
+    <th width="50%" style="padding:10px;">🇬🇧 <b>Anglais</b></th>
+    <th width="50%" style="padding:10px;">🇫🇷 <b>Français</b></th>
+  </tr>
+  <tr>
+    <td>Youtube demonstration, mailcow ISP - High availability in action. <b>Failure detection and automatic failover</b></td>
+    <td>Démonstration Youtube, mailcow ISP - Haute disponibilité en action. <b>Détection de panne et basculement automatique</b></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="padding:15px; position:relative;"><br>
+      <a href="https://www.youtube.com/watch?v=IloqWSzUiaI" target="_new">
+        <img src="maicow-isp-ha.png" alt="mailcow ISP - High availability in action" height="100%" width="90%">
+      </a>
+    <br><br>
+    </td>
+  </tr>
+</table>
+
+<br><br>
+
+<table style="width: 100%; table-layout:fixed; border:1px solid #ddd; border-collapse:collapse;">
+  <tr>
+    <th width="50%">🇬🇧 <b>Anglais</b></th>
+    <th width="50%">🇫🇷 <b>Français</b></th>
+  </tr>
+  <tr>
+    <td>Youtube Demo, Mailcow ISP - <b>Automatic Registration</b></td>
+    <td>Démonstration Youtube, mailcow ISP - <b>Inscription automatique</b></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+        <br>
+      <a href="https://www.youtube.com/watch?v=wEbo20yiaYA" target="_new">
+         <img src="signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
+      </a>
+   <br><br>
+    </td>
+  </tr>
+</table>
+
+</div>
