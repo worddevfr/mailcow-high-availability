@@ -44,6 +44,8 @@ The architecture is designed to automate failover and minimize downtime during a
 Ce projet fournit une solution complète et prête pour la production pour déployer un **cluster Mailcow en haute disponibilité (HA) de type Actif/Passif.**  
 L’architecture est conçue pour automatiser le basculement et minimiser le temps d’indisponibilité en cas de panne d’un nœud, assurant ainsi la continuité de service pour votre messagerie.
 
+<br>
+
 ---
 
 ```mermaid
@@ -122,6 +124,36 @@ graph TD
 ```
 
 ---
+
+<br>
+
+<div align="center">
+
+<table tyle="width: 100%; table-layout:fixed; border:1px solid #ddd; border-collapse:collapse;">
+  <tr>
+    <th width="50%" style="padding:10px;">🇬🇧 <b>Anglais</b></th>
+    <th width="50%" style="padding:10px;">🇫🇷 <b>Français</b></th>
+  </tr>
+  <tr>
+    <td>Youtube demonstration, mailcow ISP - High availability in action. <b>Failure detection and automatic failover</b></td>
+    <td>Démonstration Youtube, mailcow ISP - Haute disponibilité en action. <b>Détection de panne et basculement automatique</b></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="padding:15px; position:relative;"><br>
+      <a href="https://www.youtube.com/watch?v=IloqWSzUiaI" target="_new">
+        <img src="maicow-isp-ha.png" alt="mailcow ISP - High availability in action" height="100%" width="90%">
+      </a>
+    <br><br>
+    </td>
+  </tr>
+</table>
+</div>
+
+<br>
+
+---
+
+<br>
 
 ## 🇬🇧 English - Mailcow High Availability (Mailcow-HA)
 
@@ -300,3 +332,33 @@ La robustesse de Mailcow-HA repose sur quatre piliers fondamentaux :
 4.  **Sécurité et Optimisation**
     - L'architecture est conçue pour fonctionner avec des règles de **pare-feu** poussées, n'exposant que les ports strictement nécessaires.
     - Un mécanisme de **disjoncteur** (`security_wait`) empêche un cluster instable de provoquer des boucles de basculement continues.
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+<table style="width: 100%; table-layout:fixed; border:1px solid #ddd; border-collapse:collapse;">
+  <tr>
+    <th width="50%">🇬🇧 <b>Anglais</b></th>
+    <th width="50%">🇫🇷 <b>Français</b></th>
+  </tr>
+  <tr>
+    <td>Youtube Demo, Mailcow ISP - <b>Automatic Registration</b></td>
+    <td>Démonstration Youtube, mailcow ISP - <b>Inscription automatique</b></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+        <br>
+      <a href="https://www.youtube.com/watch?v=wEbo20yiaYA" target="_new">
+         <img src="signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
+      </a>
+   <br><br>
+    </td>
+  </tr>
+</table>
+
+</div>
