@@ -20,9 +20,6 @@
   <a href="https://www.keepalived.org/" target="_blank">
     <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
   </a>
-  <a href="https://mariadb.com/kb/en/galera-cluster/" target="_blank">
-    <img src="https://img.shields.io/badge/MariaDB%20Galera-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Galera"/>
-  </a>
   <a href="https://www.hetzner.com/cloud" target="_blank">
     <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
   </a>
@@ -48,7 +45,7 @@ A successful deployment requires careful planning and expertise to ensure optima
 | Service | Description |
 | :--- | :--- |
 | **📦 Full Mailcow Installation & Configuration** | Deployment of the Mailcow stack according to best practices. |
-| **🌐 Cluster Setup (Galera & Mailcow HA)** | Implementation of the 3-node database and application clusters, including all orchestration scripts. |
+| **🌐 Cluster Setup (Mailcow HA)** | Implementation of the 3-node application clusters, including all orchestration scripts. |
 | **🛡️ Server Provisioning & Hardening** | Setup and security hardening of your servers on the Hetzner Cloud platform. |
 | **📝 Custom Sign-up Portal Deployment** | Integration of the user-friendly, self-service sign-up page (if needed). |
 | **📊 Monitoring & Alerting Setup** | Configuration of internal and external monitoring to ensure you are notified of any issues. |
@@ -96,7 +93,7 @@ Un déploiement réussi nécessite une expertise humaine pour garantir une perfo
 | Service | Description |
 | :--- | :--- |
 | **📦 Installation & Configuration Complète de Mailcow** | Déploiement de la pile Mailcow selon les meilleures pratiques. |
-| **🌐 Mise en Place des Clusters (Galera & Mailcow HA)** | Implémentation des clusters de base de données et applicatif, incluant tous les scripts d'orchestration. |
+| **🌐 Mise en Place du Clusters (Mailcow HA)** | Implémentation du cluster applicatif, incluant tous les scripts d'orchestration. |
 | **🛡️ Provisionnement & Sécurisation des Serveurs** | Installation et sécurisation de vos serveurs sur la plateforme Hetzner Cloud. |
 | **📝 Déploiement du Portail d'Inscription** | Intégration de la page d'inscription personnalisée pour vos utilisateurs (le cas échéant). |
 | **📊 Configuration du Monitoring & des Alertes** | Mise en place de la surveillance interne et externe pour vous notifier de tout incident. |
