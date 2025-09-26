@@ -20,9 +20,6 @@
   <a href="https://www.keepalived.org/" target="_blank">
     <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
   </a>
-  <a href="https://mariadb.com/kb/en/galera-cluster/" target="_blank">
-    <img src="https://img.shields.io/badge/MariaDB%20Galera-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Galera"/>
-  </a>
   <a href="https://www.hetzner.com/cloud" target="_blank">
     <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
   </a>
@@ -54,7 +51,7 @@ The cluster's robustness is built on four fundamental components working in conc
 ##### 🏛️ **Pillar 1: The Application Nodes**
 The cluster consists of **three identical servers (nodes) by default**, but its architecture is designed to be **scalable to 5, 7, or more nodes**. Each node hosts:
 1.  A complete and ready-to-start Mailcow Dockerized installation.
-2.  A MariaDB database server, member of the Galera Cluster.
+2.  A MariaDB database server, configured to use the shared, persistent storage.
 3.  The cluster management service (`Mailcow-HA`).
 4.  Keepalived.
 
@@ -66,11 +63,11 @@ Our suite of orchestration scripts is the true conductor of the cluster. It uses
 *   **Application Monitoring:** An intelligent monitoring script runs at regular intervals to deeply probe the state of the Mailcow stack (running containers, health status, etc.).
 *   **Action Orchestration:** Based on the monitor's verdict, the orchestrator makes decisions. If it promotes a node to `MASTER`, it runs a promotion script. If it demotes it to `BACKUP`, it runs a demotion script. In all cases, you are **alerted in real-time** when a failover begins and when it successfully completes.
 
-##### 💾 **Pillar 3: The Resilient Database - Galera Cluster**
-The database is externalized from Mailcow and managed by a **MariaDB Galera Cluster (3 nodes by default, scalable)**.
-*   **Active Synchronization:** Galera ensures synchronous replication of all data. Every write to one node is instantly replicated to the others.
-*   **Security and Performance:** Replication occurs over a dedicated **private network**, isolating this critical traffic and ensuring minimal latency.
-*   **Scalable Dedicated Storage:** Each MariaDB node has its own dedicated block storage volume (Hetzner Volume), statically attached. These volumes are **hot-resizable**, with no service interruption, ensuring you can manage a very large number of users.
+##### 💾 **Pillar 3: The Centralized and Resilient Database**
+The database is no longer a potential point of failure. It uses a dedicated, high-performance block storage volume that operates on the same principle as the main file storage.
+*   **Single Master Access:** The MariaDB data volume is a "floating" resource, attached exclusively to the active `MASTER` node. This architecture completely prevents any risk of data corruption (split-brain) since only one server can write to the database at any given time.
+*   **High Performance & Security:** All database operations occur over a secure, high-speed private network connecting the server to its storage, ensuring minimal latency and complete isolation of critical data traffic.
+*   **Instant Failover:** During a failover, the volume is detached from the old `MASTER` and re-attached to the new one in seconds, ensuring data persistence and consistency without complex synchronization.
 
 ##### 🗃️ **Pillar 4: Centralized File Storage**
 To ensure perfect consistency and simplify management, a **single shared block storage volume** is used to centralize all of Mailcow's "stateful" data (emails, indexes, certificates, etc.).
@@ -149,7 +146,7 @@ La robustesse du cluster repose sur quatre composants fondamentaux qui travaille
 ##### 🏛️ **Pilier 1 : Les Nœuds Applicatifs**
 Le cluster est composé de **trois serveurs (nœuds) identiques par défaut**, mais son architecture est conçue pour être **extensible à 5, 7 nœuds ou plus**. Chaque nœud héberge :
 1.  Une installation complète de Mailcow Dockerized, prête à démarrer.
-2.  Un serveur de base de données MariaDB, membre du cluster Galera.
+2.  Un serveur de base de données MariaDB, configuré pour utiliser le stockage partagé et persistant.
 3.  Le service de gestion du cluster (`Mailcow-HA`).
 4.  Keepalived.
 
@@ -161,11 +158,11 @@ Notre suite de scripts d'orchestration est le véritable chef d'orchestre du clu
 *   **Surveillance Applicative :** Un script de surveillance intelligent est exécuté à intervalle régulier pour sonder en profondeur l'état de la pile Mailcow (conteneurs actifs, état de santé, etc.).
 *   **Orchestration des Actions :** En fonction du verdict du moniteur, l'orchestrateur prend des décisions. S'il promeut un nœud en `MASTER`, il exécute un script de promotion. S'il le rétrograde en `BACKUP`, il exécute un script de rétrogradation. Dans tous les cas, vous êtes **alerté en temps réel** du début et de la fin de la bascule.
 
-##### 💾 **Pilier 3 : La Base de Données Résiliente - Galera Cluster**
-La base de données est externalisée de Mailcow et gérée par un **cluster MariaDB Galera (3 nœuds par défaut, extensible)**.
-*   **Synchronisation Active :** Galera assure une réplication synchrone de toutes les données. Chaque écriture sur un nœud est instantanément répliquée sur les autres.
-*   **Sécurité et Performance :** La réplication se fait sur un **réseau privé** dédié, isolant ce trafic critique et garantissant des latences minimales.
-*   **Stockage Dédié Évolutif :** Chaque nœud MariaDB dispose de son propre volume de stockage (Hetzner Volume), attaché de manière statique. Ces volumes sont **redimensionnables à chaud**, sans aucune interruption de service, vous garantissant la capacité de gérer un très grand nombre d'utilisateurs.
+##### 💾 **Pilier 3 : La Base de Données Centralisée et Résiliente**
+La base de données n'est plus un point de défaillance. Elle utilise un volume de stockage bloc dédié et performant qui fonctionne sur le même principe que le stockage de fichiers principal.
+*   **Accès Master Unique :** Le volume de données de MariaDB est une ressource "flottante", attachée exclusivement au nœud `MASTER` actif. Cette architecture prévient tout risque de corruption de données (split-brain), car un seul serveur peut écrire dans la base de données à un instant T.
+*   **Haute Performance et Sécurité :** Toutes les opérations de la base de données s'effectuent via un réseau privé sécurisé et à haute vitesse connectant le serveur à son stockage, garantissant une latence minimale et une isolation complète du trafic de données critiques.
+*   **Bascule Instantanée :** Lors d'une bascule, le volume est détaché de l'ancien `MASTER` et rattaché au nouveau en quelques secondes, assurant la persistance et la cohérence des données sans nécessiter de synchronisation complexe.
 
 ##### 🗃️ **Pilier 4 : Le Stockage Centralisé des Fichiers**
 Pour garantir une cohérence parfaite et simplifier la gestion, un **unique volume de stockage bloc partagé** est utilisé pour centraliser toutes les données "stateful" de Mailcow (e-mails, index, certificats, etc.).
