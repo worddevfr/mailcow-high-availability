@@ -20,6 +20,9 @@
   <a href="https://www.keepalived.org/" target="_blank">
     <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
   </a>
+  <a href="https://mariadb.org/" target="_blank">
+    <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB"/>
+  </a>
   <a href="https://www.hetzner.com/cloud" target="_blank">
     <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
   </a>
