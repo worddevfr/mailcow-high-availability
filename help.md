@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 
 <p align="center">
-  <a href="https://github.com/mailcow/mailcow-dockerized" target="_blank">
+   <a href="https://github.com/mailcow/mailcow-dockerized" target="_blank">
     <img src="https://img.shields.io/badge/MAILCOW-FFC107?style=for-the-badge&logoColor=white" alt="Mailcow"/>
   </a>
   <a href="https://www.docker.com/" target="_blank">
@@ -19,6 +19,9 @@
   </a>
   <a href="https://www.keepalived.org/" target="_blank">
     <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
+  </a>
+  <a href="https://mariadb.org/" target="_blank">
+    <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB"/>
   </a>
   <a href="https://www.hetzner.com/cloud" target="_blank">
     <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
