@@ -20,9 +20,6 @@
   <a href="https://www.keepalived.org/" target="_blank">
     <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
   </a>
-  <a href="https://mariadb.com/kb/en/galera-cluster/" target="_blank">
-    <img src="https://img.shields.io/badge/MariaDB%20Galera-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Galera"/>
-  </a>
   <a href="https://www.hetzner.com/cloud" target="_blank">
     <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
   </a>
@@ -65,7 +62,7 @@ Here is the current status of our deployment scripts:
 
 ### 🚀 Need a Production-Ready Cluster Today?
 
-We understand that many projects have immediate needs and cannot wait for the full automation suite to be completed. The complexity of a manual setup (Galera Cluster, Keepalived, shared storage, security) can be daunting.
+We understand that many projects have immediate needs and cannot wait for the full automation suite to be completed. The complexity of a manual setup (Keepalived, shared storage, security) can be daunting.
 
 For this reason, we offer a **professional, turnkey deployment service** that delivers a fully configured, tested, and production-ready HA cluster, allowing you to focus on your business.
 
@@ -111,7 +108,7 @@ Voici l'état d'avancement de nos scripts de déploiement :
 
 ### 🚀 Besoin d'un Cluster Prêt pour la Production Dès Aujourd'hui ?
 
-Nous comprenons que de nombreux projets ont des besoins immédiats et ne peuvent pas attendre que la suite d'automatisation soit terminée. La complexité d'une installation manuelle (Cluster Galera, Keepalived, stockage partagé, sécurité) peut être décourageante.
+Nous comprenons que de nombreux projets ont des besoins immédiats et ne peuvent pas attendre que la suite d'automatisation soit terminée. La complexité d'une installation manuelle (Keepalived, stockage partagé, sécurité) peut être décourageante.
 
 Pour cette raison, nous proposons un **service de déploiement professionnel et clé en main** qui vous livre un cluster HA entièrement configuré, testé et prêt pour la production, vous permettant de vous concentrer sur votre activité.
 
