@@ -21,8 +21,8 @@
   <a href="https://www.keepalived.org/" target="_blank">
     <img src="https://img.shields.io/badge/Keepalived-009688?style=for-the-badge" alt="Keepalived"/>
   </a>
-  <a href="https://mariadb.com/kb/en/galera-cluster/" target="_blank">
-    <img src="https://img.shields.io/badge/MariaDB%20Galera-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Galera"/>
+  <a href="https://mariadb.org/" target="_blank">
+    <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB"/>
   </a>
   <a href="https://www.hetzner.com/cloud" target="_blank">
     <img src="https://img.shields.io/badge/Hetzner%20Cloud-D50C2D?style=for-the-badge&logo=hetzner&logoColor=white" alt="Hetzner"/>
@@ -69,64 +69,37 @@ graph TD
         direction LR
 
         subgraph "Node 1 (MASTER)"
-            id1["<b>Mailcow Docker</b><br>MariaDB (Galera)<br>Keepalived"]
+            id1["<b>Mailcow Docker</b><br>MariaDB<br>Keepalived"]
         end
 
         subgraph "Node 2 (BACKUP)"
-            id2["Mailcow Docker<br>MariaDB (Galera)<br>Keepalived"]
+            id2["Mailcow Docker<br>MariaDB<br>Keepalived"]
         end
 
         subgraph "Node 3 (BACKUP)"
-            id3["Mailcow Docker<br>MariaDB (Galera)<br>Keepalived"]
+            id3["Mailcow Docker<br>MariaDB<br>Keepalived"]
         end
     end
 
-    subgraph "💾 Data Storage / Stockage des Données"
+    subgraph "💾 Data Storage (Floating) / Stockage des Données (Flottant)"
         direction TB
         
-        %% Nœuds de titre pour éviter la superposition %%
-        TitleFiles["<b>File Storage (Floating) / Stockage Fichiers (Flottant)</b>"]
-        TitleDB["<b>Database Storage (Distributed) / Stockage BDD (Distribué)</b>"]
-        style TitleFiles fill:none,stroke:none,color:#333,font-weight:bold
-        style TitleDB fill:none,stroke:none,color:#333,font-weight:bold
+        MailcowVol[(" <br><b>Mailcow Data Volume</b><br>(Emails, Index, Certs...)")]
+        style MailcowVol fill:#f9e79f,stroke:#333,stroke-width:2px
 
-        SharedVol[(" <br>Shared Volume / Volume Partagé<br>(Emails, Index, Certs...)")]
-        style SharedVol fill:#f9e79f,stroke:#333,stroke-width:2px
-
-        subgraph " "
-            direction LR
-            DBVol1[(" <br>Volume DB 1")]
-            DBVol2[(" <br>Volume DB 2")]
-            DBVol3[(" <br>Volume DB 3")]
-        end
-        style DBVol1 fill:#aed6f1,stroke:#333,stroke-width:2px
-        style DBVol2 fill:#aed6f1,stroke:#333,stroke-width:2px
-        style DBVol3 fill:#aed6f1,stroke:#333,stroke-width:2px
-        
-        TitleFiles --> SharedVol
-        SharedVol --> TitleDB
-        TitleDB --> DBVol1
+        DBVol[(" <br><b>MariaDB Data Volume</b><br>(Database Files)")]
+        style DBVol fill:#aed6f1,stroke:#333,stroke-width:2px
     end
     
     FIP -- "<b>Active Traffic / Trafic Actif</b>" --> id1
 
-    id1 -- "<b>Mounted Volume / Volume Monté</b>" --> SharedVol
-    id2 -.-> SharedVol
-    id3 -.-> SharedVol
+    id1 -- "<b>Mounted Volume<br>Volume Monté</b>" --> MailcowVol
+    id2 -.-> MailcowVol
+    id3 -.-> MailcowVol
 
-    id1 -- "Static Volume / Volume Statique" --> DBVol1
-    id2 -- "Static Volume / Volume Statique" --> DBVol2
-    id3 -- "Static Volume / Volume Statique" --> DBVol3
-
-    subgraph "🔒 Private Network / Réseau Privé"
-        PrivateNet(( ))
-        style PrivateNet fill:#333,stroke:#fff,stroke-width:0px
-    end
-
-    DBVol1 <==> PrivateNet
-    DBVol2 <==> PrivateNet
-    DBVol3 <==> PrivateNet
-    PrivateNet -- "<b>Galera Replication</b>" --> DBVol1
+    id1 -- "<b>Mounted Volume<br>Volume Monté</b>" --> DBVol
+    id2 -.-> DBVol
+    id3 -.-> DBVol
     
     subgraph "📊 External Monitoring / Surveillance Externe"
         Kuma(("<br>Uptime Kuma"))
@@ -143,7 +116,9 @@ graph TD
     id1 -. "<b>monitor.sh</b>" .-> KA_Control
     
     KA_Control -- "master.sh<br>backup.sh" --> FIP
-    KA_Control -- "master.sh<br>backup.sh" --> SharedVol
+    KA_Control -- "master.sh<br>backup.sh" --> MailcowVol
+    KA_Control -- "master.sh<br>backup.sh" --> DBVol
+
 ```
 
 ---
@@ -166,7 +141,7 @@ The goal is simple: peace of mind. Forget waking up in the middle of the night b
 Absolutely **no human intervention** is required. The cluster detects failures and automatically fails over in the event of:
 *   **Hardware or network failure** of a node.
 *   **Malfunction of a Mailcow container** (e.g., `postfix`, `dovecot`, etc.).
-*   **Degradation of the Galera database cluster**.
+*   **Failure of the MariaDB container** to start or run properly.
 
 #### ⚡ A Few-Second Failover Time 
 In the event of a failure, the service is operational again in **only a few seconds**, depending on your server’s performance. This is the time it takes for our orchestrator to:
@@ -224,13 +199,13 @@ The robustness of Mailcow-HA is built on four fundamental pillars:
     - It uses an intelligent monitoring script (`monitor.sh`) with a grace period to check the health of the Mailcow stack and prevent false positives.
     - In case of failure, it executes `master.sh` or `backup.sh` scripts to orchestrate the failover.
 
-2.  **Resilient Database (External Galera Cluster)**
-    - A 3-node (or more) MariaDB Galera Cluster eliminates the database as a single point of failure.
-    - Communication between database nodes occurs over a **private network** for maximum security.
+2.  **Centralized & Persistent Database (Floating Volume)**
+    - The MariaDB database uses its own dedicated, persistent block storage volume.
+    - This volume is **attached and mounted exclusively on the active MASTER node**. This attach/detach mechanism, managed over a high-performance and secure private network, completely prevents split-brain scenarios and data corruption. Data integrity is absolute, as only one node can write to the database at any given time.
 
 3.  **Data Persistence (Shared Block Storage)**
-    - A single shared block storage volume (Hetzner Volume) holds all critical Mailcow data (emails, keys, IMAP indexes, Rspamd data, SSL certificates).
-    - During a failover, this volume is reattached to the new master, guaranteeing **zero data loss**.
+    - A second shared block storage volume (Hetzner Volume) holds all other critical Mailcow data (emails, keys, IMAP indexes, Rspamd data, SSL certificates).
+    - During a failover, this volume is reattached to the new master alongside the database volume, guaranteeing **zero data loss**.
 
 4.  **Security and Optimization**
     - The architecture is designed to work with **advanced firewall rules**, exposing only the strictly necessary ports.
@@ -258,7 +233,7 @@ L'objectif est simple : la tranquillité d'esprit. Oubliez les réveils en plein
 Absolument **aucune intervention humaine** n'est nécessaire. Le cluster détecte les pannes et bascule automatiquement en cas de :
 *   **Panne matérielle** ou réseau d'un nœud.
 *   **Dysfonctionnement d'un conteneur Mailcow** (ex: `postfix`, `dovecot`, etc.).
-*   **Dégradation du cluster de base de données Galera**.
+*   **Échec de démarrage ou de fonctionnement du conteneur MariaDB**.
 
 #### ⚡ Un temps de basculement de quelques secondes  
 En cas de défaillance, le service redevient opérationnel en **à peine quelques secondes**, selon les performances de votre serveur. C’est le temps nécessaire à notre orchestrateur pour :
@@ -314,13 +289,13 @@ La robustesse de Mailcow-HA repose sur quatre piliers fondamentaux :
     - Il utilise un script de surveillance (`monitor.sh`) avec une période de grâce intelligente pour vérifier la santé de Mailcow et éviter les faux positifs.
     - En cas de panne, il exécute les scripts `master.sh` ou `backup.sh` pour orchestrer la bascule.
 
-2.  **Base de Données Résiliente (Cluster Galera Externe)**
-    - Un cluster MariaDB Galera à 3 nœuds (ou plus) élimine la base de données comme point de défaillance.
-    - La communication entre les nœuds se fait sur un **réseau privé** pour une sécurité maximale.
+2.  **Base de Données Centralisée et Persistante (Volume Flottant)**
+    - La base de données MariaDB utilise son propre volume de stockage bloc, persistant et dédié.
+    - Ce volume est **attaché et monté exclusivement sur le nœud MASTER actif**. Ce mécanisme d'attachement/détachement, géré via un réseau privé performant et sécurisé, prévient tout risque de "split-brain" ou de corruption des données. L'intégrité est absolue, car un seul nœud peut écrire dans la base à un instant T.
 
 3.  **Persistance des Données (Stockage Bloc Partagé)**
-    - Un unique volume partagé (Hetzner Volume) contient toutes les données critiques de Mailcow (e-mails, clés, index IMAP, Rspamd, certificats SSL).
-    - Lors d'un basculement, ce volume est réattaché au nouveau maître, garantissant **zéro perte de données**.
+    - Un second volume de stockage partagé (Hetzner Volume) contient toutes les autres données critiques de Mailcow (e-mails, clés, index IMAP, Rspamd, certificats SSL).
+    - Lors d'un basculement, ce volume est réattaché au nouveau maître en même temps que celui de la base de données, garantissant **zéro perte de données**.
 
 4.  **Sécurité et Optimisation**
     - L'architecture est conçue pour fonctionner avec des règles de **pare-feu** poussées, n'exposant que les ports strictement nécessaires.
