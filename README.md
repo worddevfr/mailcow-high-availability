@@ -39,12 +39,18 @@
 This repository provides a complete and production-ready solution for deploying a **high-availability (HA) Active/Passive Mailcow cluster**.  
 The architecture is designed to automate failover and minimize downtime during a node failure, ensuring business continuity for your mail services.
 
+<p>
+  <strong><a href="./help.md">➡️ Learn more about our Professional services in help.md</a></strong>
+</p>
+
 ## 🇫🇷 Français - Mailcow ISP (mailcow Haute Disponibilité)
 
 Ce projet fournit une solution complète et prête pour la production pour déployer un **cluster Mailcow en haute disponibilité (HA) de type Actif/Passif.**  
 L’architecture est conçue pour automatiser le basculement et minimiser le temps d’indisponibilité en cas de panne d’un nœud, assurant ainsi la continuité de service pour votre messagerie.
 
-<br>
+<p>
+  <strong><a href="./help.md">➡️ Découvrez nos services Professionnels dans help.md</a></strong>
+</p>
 
 ---
 
