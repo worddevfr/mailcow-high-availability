@@ -4,4 +4,3 @@ cmd.txt
 *.log
 .env
 .env.* 
-data/
