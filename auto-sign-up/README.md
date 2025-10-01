@@ -270,7 +270,3 @@ cd /opt/mailcow-dockerized && docker compose restart php-fpm-mailcow
   </tr>
 </table>
 </div>
-
-
-
-

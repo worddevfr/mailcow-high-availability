@@ -368,4 +368,3 @@ La robustesse de Mailcow-HA repose sur quatre piliers fondamentaux :
 </table>
 
 </div>
-

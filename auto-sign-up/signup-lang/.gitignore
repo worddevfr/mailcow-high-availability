@@ -1,6 +1,0 @@
-.DS_Store
-cmd.txt
-.vscode/
-*.log
-.env
-.env.* 
