@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="logo.png" alt="Mailcow ISP" height="20%" width="20%" style="vertical-align: middle;">
+    <img src="img/logo.png" alt="Mailcow ISP" height="20%" width="20%" style="vertical-align: middle;">
 </div>
 
 <h1 align="center">Mailcow ISP</h1>
@@ -147,7 +147,7 @@ graph TD
   <tr>
     <td colspan="2" align="center" style="padding:15px; position:relative;"><br>
       <a href="https://www.youtube.com/watch?v=IloqWSzUiaI" target="_new">
-        <img src="maicow-isp-ha.png" alt="mailcow ISP - High availability in action" height="100%" width="90%">
+        <img src="img/maicow-isp-ha.png" alt="mailcow ISP - High availability in action" height="100%" width="90%">
       </a>
     <br><br>
     </td>
@@ -207,7 +207,7 @@ Offer your users a modern and seamless sign-up experience. This custom-developed
 
 <br>
 <p align="center">
-<img src="light-screen.png" alt="SignUp Screenshot" height="70%" width="70%">
+<img src="img/light-screen.png" alt="SignUp Screenshot" height="70%" width="70%">
 <p/>
     
 #### 📈 Proven Scalability
@@ -224,7 +224,7 @@ Know what's happening, when it's happening, without being flooded with notificat
 
 
 <p align="center">
-<img src="uptime-kuma.png" alt="External  monitoring">
+<img src="img/uptime-kuma.png" alt="External  monitoring">
 <p/>
 
 
@@ -298,7 +298,7 @@ Offrez à vos utilisateurs une expérience d'inscription moderne et instantanée
 *   **100% conforme à la charte graphique de Mailcow**, utilisant son propre système de templates pour une intégration visuelle parfaite.
 
 <p align="center">
-<img src="dark-screen.png" alt="SignUp Screenshot" height="70%" width="70%">
+<img src="img/dark-screen.png" alt="SignUp Screenshot" height="70%" width="70%">
 <p/>
 
 #### 📈 Scalabilité Éprouvée
@@ -315,7 +315,7 @@ Sachez ce qui se passe, quand ça se passe, sans être inondé de notifications.
 
 <br>
 <p align="center">
-<img src="uptime-kuma.png" alt="External  monitoring">
+<img src="img/uptime-kuma.png" alt="External  monitoring">
 <p/>
     
 ### 🏛️ Architecture du Cluster
@@ -360,7 +360,7 @@ La robustesse de Mailcow-HA repose sur quatre piliers fondamentaux :
     <td colspan="2" align="center">
         <br>
       <a href="https://www.youtube.com/watch?v=wEbo20yiaYA" target="_new">
-         <img src="signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
+         <img src="img/signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
       </a>
    <br><br>
     </td>

@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="logo.png" alt="Mailcow ISP" height="20%" width="20%" style="vertical-align: middle;">
+    <img src="img/logo.png" alt="Mailcow ISP" height="20%" width="20%" style="vertical-align: middle;">
 </div>
 
 <h1 align="center">Mailcow ISP</h1>

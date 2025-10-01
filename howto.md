@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="logo.png" alt="Mailcow ISP" height="20%" width="20%" style="vertical-align: middle;">
+    <img src="img/logo.png" alt="Mailcow ISP" height="20%" width="20%" style="vertical-align: middle;">
 </div>
 
 <h1 align="center">Mailcow ISP</h1>
@@ -234,7 +234,7 @@ Pendant ce temps, une **double surveillance** (une interne grâce à un monitori
   <tr>
     <td colspan="2" align="center" style="padding:15px; position:relative;"><br>
       <a href="https://www.youtube.com/watch?v=IloqWSzUiaI" target="_new">
-        <img src="maicow-isp-ha.png" alt="mailcow ISP - High availability in action" height="100%" width="90%">
+        <img src="img/maicow-isp-ha.png" alt="mailcow ISP - High availability in action" height="100%" width="90%">
       </a>
     <br><br>
     </td>
@@ -256,7 +256,7 @@ Pendant ce temps, une **double surveillance** (une interne grâce à un monitori
     <td colspan="2" align="center">
         <br>
       <a href="https://www.youtube.com/watch?v=wEbo20yiaYA" target="_new">
-         <img src="signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
+         <img src="img/signup.png" alt="Mailcow ISP" style="height: 50%; width: 50%;">
       </a>
    <br><br>
     </td>
